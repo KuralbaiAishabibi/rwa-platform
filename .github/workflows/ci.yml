@@ -1,4 +1,5 @@
-name: Tests Only
+name: CI
+
 on:
   push:
     branches: [ main ]
@@ -16,5 +17,8 @@ jobs:
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
 
-      - name: Run tests
+      - name: Run Forge build
+        run: forge build
+
+      - name: Run Forge tests
         run: forge test -vvv
