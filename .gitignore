@@ -1,0 +1,12 @@
+# Foundry
+out/
+cache/
+broadcast/
+
+# Node (для фронтенда потом)
+node_modules/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
