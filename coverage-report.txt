@@ -1,0 +1,197 @@
+Warning: optimizer settings and `viaIR` have been disabled for accurate coverage reports.
+If you encounter "stack too deep" errors, consider using `--ir-minimum` which enables `viaIR` with minimum optimization resolving most of the errors.
+See more: https://book.getfoundry.sh/guides/best-practices/stack-too-deep
+Compiling 81 files with Solc 0.8.20
+Solc 0.8.20 finished in 2.51s
+Compiler run successful with warnings:
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> src/factories/VaultFactory.sol:16:47:
+   |
+16 |     function createVaultWithSalt(ERC20 asset, address owner, uint256 salt) external returns (RwaYieldVault) {
+   |                                               ^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> src/factories/VaultFactory.sol:28:29:
+   |
+28 |     function predictAddress(ERC20 asset, address owner, uint256 salt) public view returns (address) {
+   |                             ^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> src/factories/VaultFactory.sol:28:42:
+   |
+28 |     function predictAddress(ERC20 asset, address owner, uint256 salt) public view returns (address) {
+   |                                          ^^^^^^^^^^^^^
+
+Warning (2018): Function state mutability can be restricted to pure
+ --> test/lending/InterestMath.t.sol:8:5:
+  |
+8 |     function testSolidityVersion() public {
+  |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/lending/InterestMath.t.sol:13:5:
+   |
+13 |     function testYulVersion() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/lending/InterestMath.t.sol:18:5:
+   |
+18 |     function testFuzz_EquivalentResults(uint256 principal, uint256 rate, uint256 duration) public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/lending/InterestMath.t.sol:27:5:
+   |
+27 |     function testFuzz_PrincipalPreserved(uint256 principal, uint256 rate, uint256 duration) public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to view
+  --> test/lending/InvariantTest.t.sol:28:5:
+   |
+28 |     function invariant_StableBalanceNotNegative() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to view
+  --> test/vault/InvariantVault.t.sol:17:5:
+   |
+17 |     function invariant_TotalAssetsEqualsBalance() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Analysing contracts...
+Running tests...
+
+Ran 2 tests for test/fork/ForkTest.t.sol:ForkTest
+[PASS] testForkChainlinkPrice() (gas: 4406)
+[PASS] testForkEthBlockNumber() (gas: 4408)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 2.31ms (765.70µs CPU time)
+
+Ran 1 test for test/vulnerabilities/ReentrancyTest.t.sol:ReentrancyTest
+[PASS] testReentrancyAttack() (gas: 120978)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 5.81ms (1.18ms CPU time)
+
+Ran 4 tests for test/tokens/AssetCertificate.t.sol:AssetCertificateTest
+[PASS] testBalanceOf() (gas: 90377)
+[PASS] testRevertMintByNonIssuer() (gas: 50300)
+[PASS] testSafeMint() (gas: 90474)
+[PASS] testTokenIdIncrements() (gas: 143485)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 10.24ms (4.77ms CPU time)
+
+Ran 4 tests for test/vault/RwaYieldVault.t.sol:RwaYieldVaultTest
+[PASS] testDeposit() (gas: 115308)
+[PASS] testMaxDeposit() (gas: 42534)
+[PASS] testMultipleDeposits() (gas: 169737)
+[PASS] testWithdraw() (gas: 117444)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 17.49ms (3.98ms CPU time)
+
+Ran 2 tests for test/Counter.t.sol:CounterTest
+[PASS] testFuzz_SetNumber(uint256) (runs: 256, μ: 28744, ~: 29289)
+[PASS] test_Increment() (gas: 28784)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 32.02ms (31.08ms CPU time)
+
+Ran 5 tests for test/lending/RwaLendingPool.t.sol:RwaLendingPoolTest
+[PASS] testBorrow() (gas: 179787)
+[PASS] testDepositCollateral() (gas: 90116)
+[PASS] testDepositUnsupportedCollateral() (gas: 1113861)
+[PASS] testPause() (gas: 72673)
+[PASS] testRepay() (gas: 192528)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 32.65ms (7.64ms CPU time)
+
+Ran 6 tests for test/tokens/AssetToken.t.sol:AssetTokenTest
+[PASS] testBurn() (gas: 69401)
+[PASS] testGrantIssuerRole() (gas: 45365)
+[PASS] testMintByIssuer() (gas: 64747)
+[PASS] testRevertMintByNonIssuer() (gas: 50598)
+[PASS] testTotalSupply() (gas: 93773)
+[PASS] testTransfer() (gas: 96288)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 33.91ms (6.61ms CPU time)
+
+Ran 4 tests for test/lending/InterestMath.t.sol:InterestMathTest
+[PASS] testFuzz_EquivalentResults(uint256,uint256,uint256) (runs: 256, μ: 5489, ~: 5496)
+[PASS] testFuzz_PrincipalPreserved(uint256,uint256,uint256) (runs: 256, μ: 4591, ~: 4598)
+[PASS] testSolidityVersion() (gas: 1190)
+[PASS] testYulVersion() (gas: 383)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 33.97ms (64.17ms CPU time)
+
+Ran 1 test for test/lending/InvariantTest.t.sol:LendingInvariantTest
+[PASS] invariant_StableBalanceNotNegative() (runs: 256, calls: 128000, reverts: 101859)
+
+╭----------------+--------------------+-------+---------+----------╮
+| Contract       | Selector           | Calls | Reverts | Discards |
++==================================================================+
+| RwaLendingPool | borrow             | 6412  | 6412    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | deposit            | 6368  | 6368    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | initialize         | 6363  | 6363    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | liquidate          | 6486  | 6486    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | pause              | 6442  | 6442    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | repay              | 6398  | 6398    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | setCollateralToken | 6426  | 6426    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | unpause            | 6453  | 6453    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | upgradeTo          | 6379  | 6379    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | upgradeToAndCall   | 6364  | 6364    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | approve            | 13009 | 11      | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | decreaseAllowance  | 12691 | 12535   | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | increaseAllowance  | 12703 | 17      | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | transfer           | 12758 | 12612   | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | transferFrom       | 12748 | 12593   | 0        |
+╰----------------+--------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 13.85s (13.85s CPU time)
+
+Ran 1 test for test/vault/InvariantVault.t.sol:VaultInvariantTest
+[PASS] invariant_TotalAssetsEqualsBalance() (runs: 256, calls: 128000, reverts: 95147)
+
+╭---------------+-------------------+-------+---------+----------╮
+| Contract      | Selector          | Calls | Reverts | Discards |
++================================================================+
+| RwaYieldVault | approve           | 7903  | 10      | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | decreaseAllowance | 8112  | 8034    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | deposit           | 8055  | 7959    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | increaseAllowance | 8097  | 11      | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | mint              | 7825  | 7749    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | redeem            | 7874  | 7761    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | renounceOwnership | 7900  | 7900    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | transfer          | 7881  | 7803    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | transferFrom      | 7954  | 7858    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | transferOwnership | 8060  | 8059    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | withdraw          | 8136  | 8037    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | approve           | 8004  | 10      | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | decreaseAllowance | 8035  | 7940    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | increaseAllowance | 7950  | 8       | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | transfer          | 8178  | 8073    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | transferFrom      | 8036  | 7935    | 0        |
+╰---------------+-------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 17.25s (17.25s CPU time)
+
+Ran 10 test suites in 17.27s (31.27s CPU time): 30 tests passed, 0 failed, 0 skipped (30 total tests)
+Wrote LCOV report.

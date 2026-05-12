@@ -11,7 +11,7 @@ contract ReentrancyVulnerable {
     function withdraw() external {
         uint256 amount = balances[msg.sender];
         require(amount > 0, "no balance");
-        (bool success, ) = msg.sender.call{value: amount}("");
+        (bool success,) = msg.sender.call{value: amount}("");
         require(success, "transfer failed");
         balances[msg.sender] = 0;
     }

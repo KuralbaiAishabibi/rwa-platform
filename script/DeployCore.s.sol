@@ -14,22 +14,22 @@ contract DeployCore is Script {
     function run() external {
         uint256 pk = vm.envUint("PRIVATE_KEY");
         address deployer = vm.addr(pk);
-        
+
         vm.startBroadcast(pk);
-        
+
         AssetToken rwaToken = new AssetToken("Real World Asset", "RWA", deployer);
         AssetCertificate cert = new AssetCertificate(deployer);
         MockERC20 stable = new MockERC20("Stable USD", "SUSD");
         ChainlinkPriceOracle oracle = new ChainlinkPriceOracle(deployer);
-        
+
         RwaLendingPool lending = new RwaLendingPool();
         lending.initialize(address(stable), address(oracle), deployer);
-        
+
         RwaYieldVault vault = new RwaYieldVault(stable, deployer);
         VaultFactory factory = new VaultFactory();
-        
+
         vm.stopBroadcast();
-        
+
         console.log("=== Core Contracts Deployed ===");
         console.log("AssetToken:", address(rwaToken));
         console.log("Certificate:", address(cert));

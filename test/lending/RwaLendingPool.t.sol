@@ -23,13 +23,13 @@ contract RwaLendingPoolTest is Test {
         stable = new MockERC20("StableCoin", "USDC");
         collateralToken = new MockERC20("Collateral", "COLL");
         MockPriceOracle oracle = new MockPriceOracle();
-        
+
         pool = new RwaLendingPool();
         pool.initialize(address(stable), address(oracle), admin);
-        
+
         vm.prank(admin);
         pool.setCollateralToken(address(collateralToken), true);
-        
+
         stable.transfer(address(pool), 100000e18);
         collateralToken.transfer(user, 1000e18);
         collateralToken.transfer(liquidator, 1000e18);

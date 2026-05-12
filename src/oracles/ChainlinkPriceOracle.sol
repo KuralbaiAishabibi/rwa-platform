@@ -25,7 +25,7 @@ contract ChainlinkPriceOracle is IPriceOracle {
     function getPrice(address asset) public view override returns (uint256) {
         AggregatorV3Interface feed = feeds[asset];
         require(address(feed) != address(0), "feed not set");
-        (, int256 answer, , uint256 updatedAt, ) = feed.latestRoundData();
+        (, int256 answer,, uint256 updatedAt,) = feed.latestRoundData();
         require(block.timestamp - updatedAt <= MAX_STALENESS, "stale price");
         require(answer > 0, "negative price");
         return uint256(answer);

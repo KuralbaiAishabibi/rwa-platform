@@ -29,7 +29,9 @@ contract RwaLendingPool is Initializable, UUPSUpgradeable, ReentrancyGuardUpgrad
     event Deposited(address indexed user, address indexed collateralToken, uint256 amount);
     event Borrowed(address indexed user, uint256 amount);
     event Repaid(address indexed user, uint256 amount);
-    event Liquidated(address indexed liquidator, address indexed borrower, address collateralToken, uint256 collateralSeized);
+    event Liquidated(
+        address indexed liquidator, address indexed borrower, address collateralToken, uint256 collateralSeized
+    );
 
     function initialize(address _stableAsset, address _oracle, address _admin) public initializer {
         __UUPSUpgradeable_init();

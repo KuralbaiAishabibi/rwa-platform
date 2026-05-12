@@ -22,7 +22,7 @@ contract ForkTest is Test {
         uint256 forkId = vm.createFork(rpcUrl);
         vm.selectFork(forkId);
         address ethUsdFeed = 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419;
-        (, int256 price, , , ) = AggregatorV3Interface(ethUsdFeed).latestRoundData();
+        (, int256 price,,,) = AggregatorV3Interface(ethUsdFeed).latestRoundData();
         assertGt(price, 0);
     }
 }
