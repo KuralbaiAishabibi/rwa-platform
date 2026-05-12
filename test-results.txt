@@ -1,0 +1,135 @@
+No files changed, compilation skipped
+
+Ran 2 tests for test/fork/ForkTest.t.sol:ForkTest
+[PASS] testForkChainlinkPrice() (gas: 3733)
+[PASS] testForkEthBlockNumber() (gas: 3735)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.12ms (319.20µs CPU time)
+
+Ran 1 test for test/vulnerabilities/ReentrancyTest.t.sol:ReentrancyTest
+[PASS] testReentrancyAttack() (gas: 117366)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.05ms (488.90µs CPU time)
+
+Ran 4 tests for test/tokens/AssetCertificate.t.sol:AssetCertificateTest
+[PASS] testBalanceOf() (gas: 88160)
+[PASS] testRevertMintByNonIssuer() (gas: 42554)
+[PASS] testSafeMint() (gas: 88190)
+[PASS] testTokenIdIncrements() (gas: 140671)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 3.10ms (1.50ms CPU time)
+
+Ran 6 tests for test/tokens/AssetToken.t.sol:AssetTokenTest
+[PASS] testBurn() (gas: 66364)
+[PASS] testGrantIssuerRole() (gas: 42762)
+[PASS] testMintByIssuer() (gas: 62652)
+[PASS] testRevertMintByNonIssuer() (gas: 42685)
+[PASS] testTotalSupply() (gas: 90717)
+[PASS] testTransfer() (gas: 91984)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 3.52ms (1.81ms CPU time)
+
+Ran 5 tests for test/lending/RwaLendingPool.t.sol:RwaLendingPoolTest
+[PASS] testBorrow() (gas: 172981)
+[PASS] testDepositCollateral() (gas: 86143)
+[PASS] testDepositUnsupportedCollateral() (gas: 616737)
+[PASS] testPause() (gas: 70005)
+[PASS] testRepay() (gas: 184732)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 2.61ms (1.29ms CPU time)
+
+Ran 4 tests for test/vault/RwaYieldVault.t.sol:RwaYieldVaultTest
+[PASS] testDeposit() (gas: 107872)
+[PASS] testMaxDeposit() (gas: 40569)
+[PASS] testMultipleDeposits() (gas: 156742)
+[PASS] testWithdraw() (gas: 108172)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 2.28ms (994.90µs CPU time)
+
+Ran 2 tests for test/Counter.t.sol:CounterTest
+[PASS] testFuzz_SetNumber(uint256) (runs: 256, μ: 28046, ~: 28435)
+[PASS] test_Increment() (gas: 28448)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 18.33ms (18.04ms CPU time)
+
+Ran 4 tests for test/lending/InterestMath.t.sol:InterestMathTest
+[PASS] testFuzz_EquivalentResults(uint256,uint256,uint256) (runs: 256, μ: 2876, ~: 2819)
+[PASS] testFuzz_PrincipalPreserved(uint256,uint256,uint256) (runs: 256, μ: 2521, ~: 2464)
+[PASS] testSolidityVersion() (gas: 647)
+[PASS] testYulVersion() (gas: 281)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 18.08ms (34.87ms CPU time)
+
+Ran 1 test for test/lending/InvariantTest.t.sol:LendingInvariantTest
+[PASS] invariant_StableBalanceNotNegative() (runs: 256, calls: 128000, reverts: 101899)
+
+╭----------------+--------------------+-------+---------+----------╮
+| Contract       | Selector           | Calls | Reverts | Discards |
++==================================================================+
+| RwaLendingPool | borrow             | 6378  | 6378    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | deposit            | 6453  | 6453    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | initialize         | 6375  | 6375    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | liquidate          | 6387  | 6387    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | pause              | 6327  | 6321    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | repay              | 6252  | 6252    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | setCollateralToken | 6341  | 6338    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | unpause            | 6434  | 6434    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | upgradeTo          | 6315  | 6315    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | upgradeToAndCall   | 6462  | 6462    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | approve            | 12862 | 1       | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | decreaseAllowance  | 12855 | 12699   | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | increaseAllowance  | 12769 | 2       | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | transfer           | 12949 | 12784   | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | transferFrom       | 12841 | 12698   | 0        |
+╰----------------+--------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 7.45s (7.45s CPU time)
+
+Ran 1 test for test/vault/InvariantVault.t.sol:VaultInvariantTest
+[PASS] invariant_TotalAssetsEqualsBalance() (runs: 256, calls: 128000, reverts: 94983)
+
+╭---------------+-------------------+-------+---------+----------╮
+| Contract      | Selector          | Calls | Reverts | Discards |
++================================================================+
+| RwaYieldVault | approve           | 8081  | 3       | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | decreaseAllowance | 8046  | 7963    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | deposit           | 7985  | 7888    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | increaseAllowance | 8039  | 12      | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | mint              | 8098  | 7998    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | redeem            | 7893  | 7799    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | renounceOwnership | 8071  | 8068    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | transfer          | 8002  | 7914    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | transferFrom      | 8035  | 7939    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | transferOwnership | 7927  | 7925    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | withdraw          | 7997  | 7894    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | approve           | 8010  | 4       | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | decreaseAllowance | 7944  | 7828    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | increaseAllowance | 7953  | 4       | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | transfer          | 7957  | 7876    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | transferFrom      | 7962  | 7868    | 0        |
+╰---------------+-------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 9.55s (9.55s CPU time)
+
+Ran 10 test suites in 9.56s (17.05s CPU time): 30 tests passed, 0 failed, 0 skipped (30 total tests)
