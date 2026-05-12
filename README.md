@@ -1,66 +1,51 @@
-## Foundry
+# RWA Tokenization Platform
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+A production-grade decentralized protocol for tokenizing real-world assets (RWA). Built as the capstone project for Blockchain Technologies 2.
 
-Foundry consists of:
+## Scenario: Option C - RWA Tokenization Platform
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- ERC-20 asset-backed tokens representing real-world collateral
+- ERC-4626 yield vault for underwriter yield
+- Chainlink Proof of Reserve and price feeds with staleness checks
+- Role-gated minting for authorized issuers
+- DAO governance over asset onboarding and parameter changes
+- L2 deployment on Arbitrum Sepolia
 
-## Documentation
+## Tech Stack
 
-https://book.getfoundry.sh/
+- Solidity 0.8.20 (Foundry)
+- React + Viem + Wagmi (Frontend)
+- The Graph (Indexing)
+- OpenZeppelin Contracts v4.9.6
+- Chainlink Oracles
 
-## Usage
+## Quick Start
+
+### Prerequisites
+
+- Foundry (forge, cast, anvil)
 
 ### Build
 
-```shell
-$ forge build
-```
+forge build
 
 ### Test
 
-```shell
-$ forge test
-```
+forge test -vvv
 
-### Format
+### Coverage
 
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
+forge coverage
 
 ### Deploy
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+forge script script/DeployCore.s.sol --rpc-url $RPC_URL --broadcast --verify
 
-### Cast
+## Team
 
-```shell
-$ cast <subcommand>
-```
+- Ayshabibi Kuralbai - Core Protocol Contracts
+- Lenara Symbatkyzy - Governance, Frontend, DevOps
 
-### Help
+## License
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+MIT
