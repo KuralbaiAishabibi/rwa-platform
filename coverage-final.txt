@@ -1,0 +1,304 @@
+Warning: optimizer settings and `viaIR` have been disabled for accurate coverage reports.
+If you encounter "stack too deep" errors, consider using `--ir-minimum` which enables `viaIR` with minimum optimization resolving most of the errors
+Compiling 119 files with Solc 0.8.20
+Solc 0.8.20 finished in 2.51s
+Compiler run successful with warnings:
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> src/factories/VaultFactory.sol:16:47:
+   |
+16 |     function createVaultWithSalt(ERC20 asset, address owner, uint256 salt) external returns (RwaYieldVault) {
+   |                                               ^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> src/factories/VaultFactory.sol:28:29:
+   |
+28 |     function predictAddress(ERC20 asset, address owner, uint256 salt) public view returns (address) {
+   |                             ^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> src/factories/VaultFactory.sol:28:42:
+   |
+28 |     function predictAddress(ERC20 asset, address owner, uint256 salt) public view returns (address) {
+   |                                          ^^^^^^^^^^^^^
+
+Warning (2018): Function state mutability can be restricted to view
+  --> test/factories/VaultFactory.t.sol:30:5:
+   |
+30 |     function testPredictAddress() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to view
+  --> test/factories/VaultFactory.t.sol:35:5:
+   |
+35 |     function testPredictAddressDifferentSalts() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+ --> test/lending/InterestMath.t.sol:8:5:
+  |
+8 |     function testSolidityVersion() public {
+  |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/lending/InterestMath.t.sol:13:5:
+   |
+13 |     function testYulVersion() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/lending/InterestMath.t.sol:18:5:
+   |
+18 |     function testFuzz_EquivalentResults(uint256 principal, uint256 rate, uint256 duration) public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/lending/InterestMath.t.sol:27:5:
+   |
+27 |     function testFuzz_PrincipalPreserved(uint256 principal, uint256 rate, uint256 duration) public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to view
+  --> test/lending/InvariantTest.t.sol:28:5:
+   |
+28 |     function invariant_StableBalanceNotNegative() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to view
+  --> test/vault/InvariantVault.t.sol:17:5:
+   |
+17 |     function invariant_TotalAssetsEqualsBalance() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Analysing contracts...
+Running tests...
+
+Ran 2 tests for test/vulnerabilities/AccessControlAttack.t.sol:AccessControlAttackTest
+[PASS] testSafeAccessControlBlocked() (gas: 19511)
+[PASS] testVulnerableTxOriginAttack() (gas: 17616)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.40ms (516.10µs CPU time)
+
+Ran 5 tests for test/tokens/AssetCertificate.t.sol:AssetCertificateTest
+[PASS] testBalanceOf() (gas: 90399)
+[PASS] testRevertMintByNonIssuer() (gas: 50300)
+[PASS] testSafeMint() (gas: 90496)
+[PASS] testSupportsInterface() (gas: 8254)
+[PASS] testTokenIdIncrements() (gas: 143507)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 3.08ms (2.03ms CPU time)
+
+Ran 6 tests for test/tokens/AssetToken.t.sol:AssetTokenTest
+[PASS] testBurn() (gas: 69401)
+[PASS] testGrantIssuerRole() (gas: 45365)
+[PASS] testMintByIssuer() (gas: 64747)
+[PASS] testRevertMintByNonIssuer() (gas: 50598)
+[PASS] testTotalSupply() (gas: 93773)
+[PASS] testTransfer() (gas: 96288)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 26.65ms (26.43ms CPU time)
+
+Ran 4 tests for test/governance/RWAGovernor.t.sol:RWAGovernorTest
+[PASS] testParameters() (gas: 11147)
+[PASS] testProposalCreation() (gas: 108855)
+[PASS] testProposeAndQueue() (gas: 284570)
+[PASS] testVoting() (gas: 225690)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 5.61ms (2.97ms CPU time)
+
+Ran 2 tests for test/Counter.t.sol:CounterTest
+[PASS] testFuzz_SetNumber(uint256) (runs: 256, μ: 28589, ~: 29289)
+[PASS] test_Increment() (gas: 28784)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 9.23ms (9.10ms CPU time)
+
+Ran 4 tests for test/factories/VaultFactory.t.sol:VaultFactoryTest
+[PASS] testCreateVault() (gas: 2614544)
+[PASS] testCreateVaultReturnsDifferentAddresses() (gas: 5217833)
+[PASS] testPredictAddress() (gas: 18637)
+[PASS] testPredictAddressDifferentSalts() (gas: 28542)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 1.78ms (1.23ms CPU time)
+
+Ran 2 tests for test/fork/ForkTest.t.sol:ForkTest
+[PASS] testForkChainlinkPrice() (gas: 4406)
+[PASS] testForkEthBlockNumber() (gas: 4408)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 556.80µs (394.80µs CPU time)
+
+Ran 1 test for test/vulnerabilities/ReentrancyTest.t.sol:ReentrancyTest
+[PASS] testReentrancyAttack() (gas: 120978)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 756.10µs (380.30µs CPU time)
+
+Ran 8 tests for test/lending/RwaLendingPool.t.sol:RwaLendingPoolTest
+[PASS] testBorrow() (gas: 179787)
+[PASS] testDepositCollateral() (gas: 90094)
+[PASS] testDepositUnsupportedCollateral() (gas: 1113861)
+[PASS] testHealthFactorNoDebt() (gas: 10785)
+[PASS] testLiquidate() (gas: 188956)
+[PASS] testPause() (gas: 72717)
+[PASS] testRepay() (gas: 195474)
+[PASS] testUnpause() (gas: 110452)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 4.51ms (4.79ms CPU time)
+
+Ran 2 tests for test/governance/RWATimelock.t.sol:RWATimelockTest
+[PASS] testMinDelay() (gas: 7988)
+[PASS] testTimelockDeployed() (gas: 2436)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.07ms (292.20µs CPU time)
+
+Ran 4 tests for test/vault/RwaYieldVault.t.sol:RwaYieldVaultTest
+[PASS] testDeposit() (gas: 115308)
+[PASS] testMaxDeposit() (gas: 42534)
+[PASS] testMultipleDeposits() (gas: 169737)
+[PASS] testWithdraw() (gas: 117444)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 2.65ms (1.56ms CPU time)
+
+Ran 6 tests for test/oracles/ChainlinkPriceOracle.t.sol:ChainlinkPriceOracleTest
+[PASS] testGetPriceRevertForUnknownAsset() (gas: 13807)
+[PASS] testGetPriceRevertNegative() (gas: 186403)
+[PASS] testGetPriceRevertStale() (gas: 186595)
+[PASS] testGetPriceSuccess() (gas: 185832)
+[PASS] testSetFeed() (gas: 40279)
+[PASS] testSetFeedRevert() (gas: 18852)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 11.20ms (4.73ms CPU time)
+
+Ran 4 tests for test/lending/InterestMath.t.sol:InterestMathTest
+[PASS] testFuzz_EquivalentResults(uint256,uint256,uint256) (runs: 256, μ: 5323, ~: 5496)
+[PASS] testFuzz_PrincipalPreserved(uint256,uint256,uint256) (runs: 256, μ: 4425, ~: 4598)
+[PASS] testSolidityVersion() (gas: 1190)
+[PASS] testYulVersion() (gas: 383)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 27.54ms (40.24ms CPU time)
+
+Ran 9 tests for test/governance/GovernanceToken.t.sol:GovernanceTokenTest
+[PASS] testDelegation() (gas: 88382)
+[PASS] testFuzzDelegation(uint256) (runs: 256, μ: 124445, ~: 123885)
+[PASS] testInitialSupply() (gas: 13977)
+[PASS] testMint() (gas: 7969)
+[PASS] testOwnership() (gas: 10246)
+[PASS] testPermitNonces() (gas: 10680)
+[PASS] testRedelegation() (gas: 187086)
+[PASS] testTransfer() (gas: 50358)
+[PASS] testTransferUpdatesVotingPower() (gas: 127069)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 43.36ms (44.64ms CPU time)
+
+Ran 1 test for test/vault/InvariantVault.t.sol:VaultInvariantTest
+[PASS] invariant_TotalAssetsEqualsBalance() (runs: 256, calls: 128000, reverts: 95137)
+
+╭---------------+-------------------+-------+---------+----------╮
+| Contract      | Selector          | Calls | Reverts | Discards |
++================================================================+
+| RwaYieldVault | approve           | 7903  | 8       | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | decreaseAllowance | 8112  | 8034    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | deposit           | 8055  | 7959    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | increaseAllowance | 8097  | 10      | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | mint              | 7825  | 7749    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | redeem            | 7874  | 7761    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | renounceOwnership | 7900  | 7899    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | transfer          | 7881  | 7803    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | transferFrom      | 7954  | 7858    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | transferOwnership | 8060  | 8059    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| RwaYieldVault | withdraw          | 8136  | 8037    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | approve           | 8004  | 4       | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | decreaseAllowance | 8035  | 7940    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | increaseAllowance | 7950  | 8       | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | transfer          | 8178  | 8073    | 0        |
+|---------------+-------------------+-------+---------+----------|
+| MockERC20     | transferFrom      | 8036  | 7935    | 0        |
+╰---------------+-------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 7.82s (7.82s CPU time)
+
+Ran 1 test for test/lending/InvariantTest.t.sol:LendingInvariantTest
+[PASS] invariant_StableBalanceNotNegative() (runs: 256, calls: 128000, reverts: 101861)
+
+╭----------------+--------------------+-------+---------+----------╮
+| Contract       | Selector           | Calls | Reverts | Discards |
++==================================================================+
+| RwaLendingPool | borrow             | 6412  | 6412    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | deposit            | 6368  | 6368    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | initialize         | 6363  | 6363    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | liquidate          | 6486  | 6486    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | pause              | 6442  | 6442    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | repay              | 6398  | 6398    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | setCollateralToken | 6426  | 6426    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | unpause            | 6453  | 6453    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | upgradeTo          | 6379  | 6379    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| RwaLendingPool | upgradeToAndCall   | 6364  | 6364    | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | approve            | 13009 | 20      | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | decreaseAllowance  | 12691 | 12535   | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | increaseAllowance  | 12703 | 12      | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | transfer           | 12758 | 12610   | 0        |
+|----------------+--------------------+-------+---------+----------|
+| MockERC20      | transferFrom       | 12748 | 12593   | 0        |
+╰----------------+--------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 13.49s (13.49s CPU time)
+
+Ran 16 test suites in 13.51s (21.46s CPU time): 61 tests passed, 0 failed, 0 skipped (61 total tests)
+
+╭--------------------------------------------------+------------------+------------------+----------------+----------------╮
+| File                                             | % Lines          | % Statements     | % Branches     | % Funcs        |
++==========================================================================================================================+
+| script/Counter.s.sol                             | 0.00% (0/5)      | 0.00% (0/3)      | 100.00% (0/0)  | 0.00% (0/2)    |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| script/DeployCore.s.sol                          | 0.00% (0/21)     | 0.00% (0/29)     | 100.00% (0/0)  | 0.00% (0/1)    |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| script/DeployGovernance.s.sol                    | 0.00% (0/17)     | 0.00% (0/23)     | 100.00% (0/0)  | 0.00% (0/1)    |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| src/Counter.sol                                  | 100.00% (4/4)    | 100.00% (2/2)    | 100.00% (0/0)  | 100.00% (2/2)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| src/factories/VaultFactory.sol                   | 50.00% (8/16)    | 47.06% (8/17)    | 0.00% (0/1)    | 66.67% (2/3)   |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| src/governance/RWAGovernor.sol                   | 50.00% (10/20)   | 63.16% (12/19)   | 100.00% (0/0)  | 40.00% (4/10)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| src/lending/RwaLendingPool.sol                   | 98.08% (51/52)   | 95.74% (45/47)   | 68.75% (11/16) | 90.91% (10/11) |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| src/lending/libraries/InterestMath.sol           | 100.00% (7/7)    | 100.00% (7/7)    | 100.00% (0/0)  | 100.00% (2/2)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| src/oracles/ChainlinkPriceOracle.sol             | 100.00% (13/13)  | 100.00% (10/10)  | 100.00% (8/8)  | 100.00% (4/4)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| src/tokens/AssetCertificate.sol                  | 100.00% (8/8)    | 100.00% (7/7)    | 100.00% (0/0)  | 100.00% (3/3)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| src/tokens/AssetToken.sol                        | 100.00% (4/4)    | 100.00% (2/2)    | 100.00% (0/0)  | 100.00% (2/2)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| src/tokens/GovernanceToken.sol                   | 77.78% (7/9)     | 80.00% (4/5)     | 100.00% (0/0)  | 75.00% (3/4)   |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| src/vault/RwaYieldVault.sol                      | 100.00% (4/4)    | 100.00% (3/3)    | 100.00% (0/0)  | 100.00% (2/2)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| test/lending/InvariantTest.t.sol                 | 0.00% (0/2)      | 0.00% (0/1)      | 100.00% (0/0)  | 0.00% (0/1)    |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| test/lending/RwaLendingPool.t.sol                | 100.00% (4/4)    | 100.00% (2/2)    | 100.00% (0/0)  | 100.00% (2/2)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| test/oracles/ChainlinkPriceOracle.t.sol          | 100.00% (5/5)    | 100.00% (3/3)    | 100.00% (0/0)  | 100.00% (2/2)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| test/vault/MockERC20.sol                         | 100.00% (2/2)    | 100.00% (1/1)    | 100.00% (0/0)  | 100.00% (1/1)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| test/vulnerabilities/AccessControlFixed.sol      | 80.00% (4/5)     | 66.67% (2/3)     | 50.00% (1/2)   | 100.00% (2/2)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| test/vulnerabilities/AccessControlVulnerable.sol | 80.00% (4/5)     | 66.67% (2/3)     | 50.00% (1/2)   | 100.00% (2/2)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| test/vulnerabilities/Attacker.sol                | 100.00% (8/8)    | 100.00% (5/5)    | 100.00% (1/1)  | 100.00% (3/3)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| test/vulnerabilities/ReentrancyVulnerable.sol    | 100.00% (8/8)    | 100.00% (7/7)    | 50.00% (2/4)   | 100.00% (2/2)  |
+|--------------------------------------------------+------------------+------------------+----------------+----------------|
+| Total                                            | 68.95% (151/219) | 61.31% (122/199) | 70.59% (24/34) | 77.42% (48/62) |
+╰--------------------------------------------------+------------------+------------------+----------------+----------------╯

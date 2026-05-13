@@ -8,7 +8,6 @@ import {PausableUpgradeable} from "@openzeppelin/contracts-upgradeable/security/
 import {IERC20Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 import {SafeERC20Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
 import {IPriceOracle} from "../interfaces/IPriceOracle.sol";
-import {InterestMath} from "./libraries/InterestMath.sol";
 
 contract RwaLendingPool is Initializable, UUPSUpgradeable, ReentrancyGuardUpgradeable, PausableUpgradeable {
     using SafeERC20Upgradeable for IERC20Upgradeable;
@@ -22,6 +21,7 @@ contract RwaLendingPool is Initializable, UUPSUpgradeable, ReentrancyGuardUpgrad
     IERC20Upgradeable public stableAsset;
     IPriceOracle public oracle;
     address public admin;
+    address public activeCollateral;
 
     mapping(address => mapping(address => Loan)) public loans;
     mapping(address => bool) public supportedCollateral;
@@ -29,9 +29,7 @@ contract RwaLendingPool is Initializable, UUPSUpgradeable, ReentrancyGuardUpgrad
     event Deposited(address indexed user, address indexed collateralToken, uint256 amount);
     event Borrowed(address indexed user, uint256 amount);
     event Repaid(address indexed user, uint256 amount);
-    event Liquidated(
-        address indexed liquidator, address indexed borrower, address collateralToken, uint256 collateralSeized
-    );
+    event Liquidated(address indexed liquidator, address indexed borrower, address collateralToken, uint256 collateralSeized);
 
     function initialize(address _stableAsset, address _oracle, address _admin) public initializer {
         __UUPSUpgradeable_init();
@@ -44,6 +42,7 @@ contract RwaLendingPool is Initializable, UUPSUpgradeable, ReentrancyGuardUpgrad
 
     function setCollateralToken(address token, bool enabled) external onlyAdmin {
         supportedCollateral[token] = enabled;
+        if (enabled) activeCollateral = token;
     }
 
     function deposit(address collateralToken, uint256 amount) external whenNotPaused nonReentrant {
@@ -55,7 +54,7 @@ contract RwaLendingPool is Initializable, UUPSUpgradeable, ReentrancyGuardUpgrad
 
     function borrow(uint256 amount) external whenNotPaused nonReentrant {
         require(amount > 0, "borrow zero");
-        require(healthFactor(msg.sender) > 1_5e17, "health factor too low");
+        require(healthFactor(msg.sender) > 1e18, "health factor too low");
         loans[msg.sender][address(0)].debtAmount += amount;
         loans[msg.sender][address(0)].lastUpdateTimestamp = block.timestamp;
         stableAsset.safeTransfer(msg.sender, amount);
@@ -83,7 +82,12 @@ contract RwaLendingPool is Initializable, UUPSUpgradeable, ReentrancyGuardUpgrad
     function healthFactor(address user) public view returns (uint256) {
         uint256 debt = loans[user][address(0)].debtAmount;
         if (debt == 0) return type(uint256).max;
-        return 2e18;
+        address col = activeCollateral;
+        uint256 collateralAmount = loans[user][col].collateralAmount;
+        uint256 price = oracle.getPrice(col);
+        uint256 collateralValue = (collateralAmount * price) / 1e8;
+        if (collateralValue == 0) return 0;
+        return (collateralValue * 1e18) / debt;
     }
 
     function pause() external onlyAdmin {

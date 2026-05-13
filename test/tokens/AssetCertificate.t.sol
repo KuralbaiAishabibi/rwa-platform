@@ -43,4 +43,9 @@ contract AssetCertificateTest is Test {
         cert.safeMint(user);
         assertEq(cert.balanceOf(user), 1);
     }
+
+    function testSupportsInterface() public view {
+        assertTrue(cert.supportsInterface(0x80ac58cd));
+        assertTrue(cert.supportsInterface(0x7965db0b));
+    }
 }
