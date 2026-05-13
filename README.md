@@ -1,51 +1,39 @@
 # RWA Tokenization Platform
 
-A production-grade decentralized protocol for tokenizing real-world assets (RWA). Built as the capstone project for Blockchain Technologies 2.
+A production-grade decentralized protocol for tokenizing real-world assets.
 
 ## Scenario: Option C - RWA Tokenization Platform
 
-- ERC-20 asset-backed tokens representing real-world collateral
-- ERC-4626 yield vault for underwriter yield
-- Chainlink Proof of Reserve and price feeds with staleness checks
-- Role-gated minting for authorized issuers
-- DAO governance over asset onboarding and parameter changes
-- L2 deployment on Arbitrum Sepolia
-
-## Tech Stack
-
-- Solidity 0.8.20 (Foundry)
-- React + Viem + Wagmi (Frontend)
-- The Graph (Indexing)
-- OpenZeppelin Contracts v4.9.6
-- Chainlink Oracles
+## Deployed Addresses (Arbitrum Sepolia)
+| Contract | Address |
+|----------|---------|
+| GovernanceToken | TBD |
+| RWATimelock | TBD |
+| RWAGovernor | TBD |
+| AssetToken | TBD |
+| AssetCertificate | TBD |
+| RwaYieldVault | TBD |
+| ChainlinkPriceOracle | TBD |
+| RwaLendingPool | TBD |
+| VaultFactory | TBD |
 
 ## Quick Start
-
-### Prerequisites
-
-- Foundry (forge, cast, anvil)
-
-### Build
-
+```bash
 forge build
-
-### Test
-
 forge test -vvv
-
-### Coverage
-
 forge coverage
+Deploy
+bash
+forge script script/DeployAll.s.sol --rpc-url $ARB_SEPOLIA_RPC --broadcast --verify
+Frontend
+bash
+cd frontend
+npm install
+npm run dev
+Team
+Ayshabibi Kuralbai - Core Protocol Contracts
 
-### Deploy
+Lenara Symbatkyzy - Governance, Frontend, DevOps, Documentation
 
-forge script script/DeployCore.s.sol --rpc-url $RPC_URL --broadcast --verify
-
-## Team
-
-- Ayshabibi Kuralbai - Core Protocol Contracts
-- Lenara Symbatkyzy - Governance, Frontend, DevOps
-
-## License
-
+License
 MIT
