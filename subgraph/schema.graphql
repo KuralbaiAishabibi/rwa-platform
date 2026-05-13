@@ -1,0 +1,35 @@
+type GovernanceToken @entity {
+  id: ID!
+  totalSupply: BigInt!
+  holders: [TokenHolder!] @derivedFrom(field: "token")
+}
+
+type TokenHolder @entity {
+  id: ID!
+  address: Bytes!
+  balance: BigInt!
+  token: GovernanceToken!
+}
+
+type Proposal @entity {
+  id: ID!
+  proposalId: BigInt!
+  proposer: Bytes!
+  description: String!
+  startBlock: BigInt!
+  endBlock: BigInt!
+  forVotes: BigInt!
+  againstVotes: BigInt!
+  abstainVotes: BigInt!
+  executed: Boolean!
+  status: String!
+  votes: [VoteCast!] @derivedFrom(field: "proposal")
+}
+
+type VoteCast @entity {
+  id: ID!
+  proposal: Proposal!
+  voter: Bytes!
+  support: Int!
+  weight: BigInt!
+}
