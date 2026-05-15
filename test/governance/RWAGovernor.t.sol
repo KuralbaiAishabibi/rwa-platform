@@ -24,7 +24,7 @@ contract RWAGovernorTest is Test {
         proposers[0] = address(this);
         address[] memory executors = new address[](1);
         executors[0] = address(this);
-        
+
         vm.prank(owner);
         timelock = new RWATimelock(1, proposers, executors, address(this));
 

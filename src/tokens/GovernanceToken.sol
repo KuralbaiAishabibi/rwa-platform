@@ -7,33 +7,23 @@ import {ERC20Votes} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Vo
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 contract GovernanceToken is ERC20, ERC20Permit, ERC20Votes, Ownable {
-    constructor(
-        address initialOwner,
-        uint256 initialSupply
-    ) ERC20("RWA Governance Token", "GOV") ERC20Permit("RWA Governance Token") {
+    constructor(address initialOwner, uint256 initialSupply)
+        ERC20("RWA Governance Token", "GOV")
+        ERC20Permit("RWA Governance Token")
+    {
         _mint(initialOwner, initialSupply);
         _transferOwnership(initialOwner);
     }
 
-    function _afterTokenTransfer(
-        address from,
-        address to,
-        uint256 amount
-    ) internal override(ERC20, ERC20Votes) {
+    function _afterTokenTransfer(address from, address to, uint256 amount) internal override(ERC20, ERC20Votes) {
         super._afterTokenTransfer(from, to, amount);
     }
 
-    function _mint(
-        address to,
-        uint256 amount
-    ) internal override(ERC20, ERC20Votes) {
+    function _mint(address to, uint256 amount) internal override(ERC20, ERC20Votes) {
         super._mint(to, amount);
     }
 
-    function _burn(
-        address account,
-        uint256 amount
-    ) internal override(ERC20, ERC20Votes) {
+    function _burn(address account, uint256 amount) internal override(ERC20, ERC20Votes) {
         super._burn(account, amount);
     }
 }
